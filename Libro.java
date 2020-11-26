@@ -13,7 +13,7 @@ public class Libro {
     private String autor;
     private String titulo;
     private int numeroPaginas;
-    
+    private String numeroReferencia;
     
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -23,7 +23,7 @@ public class Libro {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = numeroPag;
-
+        numeroReferencia = "";
     }
     
     public String getAutor(){
@@ -38,6 +38,20 @@ public class Libro {
         return numeroPaginas;
     }
     
+    public String getNumeroReferencia(){
+        return numeroReferencia;
+    }
+    
+    public void setNumeroReferencia(String nuevaReferencia){
+        
+        if (nuevaReferencia.length() > 3){
+            numeroReferencia = nuevaReferencia;
+        }
+        else{
+            System.out.println("Introduzca una referencia con mas de 3 caracteres");
+        }
+    }
+    
     public void imprimeAutor(){
         System.out.println("el autor es " + autor);
     }
@@ -47,11 +61,24 @@ public class Libro {
     }
     
     public void imprimirDetalles(){
-        System.out.println("Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas);
+        if(numeroReferencia != ""){
+            System.out.println("Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", Nº referencia: " + numeroReferencia);
+        }
+        else{
+            System.out.println("Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", Nº referencia: ZZZ");
+        }
+        
     }
     
     public String getDetalles(){
-        return "Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas;
+        String cadenaADevolver = "";
+        if(numeroReferencia != ""){
+            cadenaADevolver = "Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", Nº referencia: " + numeroReferencia;
+        }  
+        else{
+            cadenaADevolver = "Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", Nº referencia: ZZZ";
+        }    
+        return cadenaADevolver;
     }
     
 }
