@@ -14,6 +14,7 @@ public class Libro {
     private String titulo;
     private int numeroPaginas;
     private String numeroReferencia;
+    private int vecesPrestado;
     
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -24,6 +25,7 @@ public class Libro {
         titulo = tituloLibro;
         numeroPaginas = numeroPag;
         numeroReferencia = "";
+        vecesPrestado = 0;
     }
     
     public String getAutor(){
@@ -40,6 +42,10 @@ public class Libro {
     
     public String getNumeroReferencia(){
         return numeroReferencia;
+    }
+   
+    public int getVecesPrestado(){
+        return vecesPrestado;
     }
     
     public void setNumeroReferencia(String nuevaReferencia){
@@ -62,10 +68,10 @@ public class Libro {
     
     public void imprimirDetalles(){
         if(numeroReferencia != ""){
-            System.out.println("Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", Nº referencia: " + numeroReferencia);
+            System.out.println("Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", Nº referencia: " + numeroReferencia + ", Veces prestado: " + vecesPrestado);
         }
         else{
-            System.out.println("Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", Nº referencia: ZZZ");
+            System.out.println("Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", Nº referencia: ZZZ" + ", Veces prestado: " + vecesPrestado);
         }
         
     }
@@ -73,12 +79,15 @@ public class Libro {
     public String getDetalles(){
         String cadenaADevolver = "";
         if(numeroReferencia != ""){
-            cadenaADevolver = "Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", Nº referencia: " + numeroReferencia;
+            cadenaADevolver = "Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", Nº referencia: " + numeroReferencia + ", Veces prestado: " + vecesPrestado;
         }  
         else{
-            cadenaADevolver = "Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", Nº referencia: ZZZ";
+            cadenaADevolver = "Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", Nº referencia: ZZZ" + ", Veces prestado: " + vecesPrestado;
         }    
         return cadenaADevolver;
     }
     
+    public void prestar(){
+        vecesPrestado += 1;
+    }
 }
